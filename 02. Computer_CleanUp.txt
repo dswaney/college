@@ -1,0 +1,5 @@
+Cleanmgr /Sagerun:1 /VERYLOWDISK
+SFC /Scannow
+DISM.exe /Online /CleanUp-Image /RestoreHealth
+Dism.exe /online /Cleanup-Image /StartComponentCleanup /ResetBase
+Optimize-Volume -DriveLetter C -ReTrim -Verbose
