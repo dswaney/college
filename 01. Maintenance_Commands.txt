@@ -24,55 +24,78 @@ Get-AppxPackage -AllUsers -name “Microsoft.WindowsPhone” | Remove-AppxPackag
 Get-AppxPackage -AllUsers -name “Microsoft.SkypeApp” | Remove-AppxPackage
 Get-AppxPackage -AllUsers -name "Microsoft.YourPhone" | Remove-AppxPackage
 Get-AppXPackage *WindowsStore* -AllUsers | Foreach {Add-AppxPackage -DisableDevelopmentMode -Register "$($_.InstallLocation)\AppXManifest.xml"}
-reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection\AllowTelemetry /v 0 /f
-reg add HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection\AllowTelemetry /v 0 /f
-reg add HKLM\SOFTWARE\Policies\Microsoft\Windows\CloudContent\DisableWindowsConsumerFeatures /v 1 /f
-reg add HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection\DoNotShowFeedbackNotifications /v 1 /f
-reg add HKLM\SOFTWARE\Policies\Microsoft\Windows\AdvertisingInfo\DisabledByGroupPolicy /v 1 /f
-reg add HKLM\SOFTWARE\Microsoft\Windows\Windows_Error_Reporting\Disabled /v 1 /f
-reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config\DODownloadMode /v 1 /f
-reg add HKLM\SYSTEM\CurrentControlSet\Control\Remote_Assistance\fAllowToGetHelp /v 0 /f
-reg add HKLM\SYSTEM\CurrentControlSet\Control\FileSystem\LongPathsEnabled /v 1 /f
-reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\DriverSearching\SearchOrderConfig /v 1 /f
-reg add HKLM\SOFTWARE\Microsoft\Windows_NT\CurrentVersion\Multimedia\SystemProfile\SystemResponsiveness /v 0 /f
-reg add HKLM\SOFTWARE\Microsoft\Windows_NT\CurrentVersion\Multimedia\SystemProfile\NetworkThrottlingIndex /v 4294967295 /f
-reg add HKLM\SYSTEM\CurrentControlSet\Control\Session_Manager\Memory_Management\ClearPageFileAtShutdown /v 0 /f
-reg add HKLM\SYSTEM\ControlSet001\Services\Ndu\Start /v 2 /f
-reg add HKLM\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters\IRPStackSize /v 30 /f
-reg add HKLM\SOFTWARE\Microsoft\Windows_NT\CurrentVersion\Multimedia\SystemProfile\Tasks\Games\GPU_Priority /v 8 /f
-reg add HKLM\SOFTWARE\Microsoft\Windows_NT\CurrentVersion\Multimedia\SystemProfile\Tasks\Games\Priority /v 6 /f
-reg add HKLM\SOFTWARE\Microsoft\Windows_NT\CurrentVersion\Multimedia\SystemProfile\Tasks\Games\Scheduling_Category /v High /f
-reg add HKLM\SOFTWARE\Policies\Microsoft\Windows\System\EnableActivityFeed /v 0 /f
-reg add HKLM\SOFTWARE\Policies\Microsoft\Windows\System\PublishUserActivities /v 0 /f
-reg add HKLM\SOFTWARE\Policies\Microsoft\Windows\System\UploadUserActivities /v 0 /f
-reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\location\Value /v Deny /f
-reg add HKLM\SYSTEM\CurrentControlSet\Services\lfsvc\Service\Configuration\Status /v 0 /f
-reg add HKLM\SYSTEM\Maps\AutoUpdateEnabled /v 0 /f
-reg add HKLM\Software\Microsoft\PolicyManager\default\WiFi\AllowWiFiHotSpotReporting\Value /v 0 /f
-reg add HKLM\Software\Microsoft\PolicyManager\default\WiFi\AllowAutoConnectToWiFiSenseHotspots\Value /v 0 /f
-reg add HKLM\System\CurrentControlSet\Control\Session_Manager\Power\HibernateEnabled /v 0 /f
-reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\FlyoutMenuSettings\ShowHibernateOption /v 0 /f
-reg add HKLM\SOFTWARE\Policies\Microsoft\Windows\GameDVR\AllowGameDVR /v 0 /f
+reg add HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection\AllowTelemetry /v 0 /f
+reg add HKLM:\SOFTWARE\Policies\Microsoft\Windows\DataCollection\AllowTelemetry /v 0 /f
+reg add HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager\ContentDeliveryAllowed /v 0 /f
+reg add HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager\OemPreInstalledAppsEnabled /v 0 /f
+reg add HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager\PreInstalledAppsEnabled /v 0 /f
+reg add HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager\PreInstalledAppsEverEnabled /v 0 /f
+reg add HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager\SilentInstalledAppsEnabled /v 0 /f
+reg add HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager\SubscribedContent-338387Enabled /v 0 /f
+reg add HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager\SubscribedContent-338388Enabled /v 0 /f
+reg add HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager\SubscribedContent-338389Enabled /v 0 /f
+reg add HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager\SubscribedContent-353698Enabled /v 0 /f
+reg add HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager\SystemPaneSuggestionsEnabled /v 0 /f
+reg add HKCU\SOFTWARE\Microsoft\Siuf\Rules\NumberOfSIUFInPeriod /v 0 /f
+reg add HKLM:\SOFTWARE\Policies\Microsoft\Windows\DataCollection\DoNotShowFeedbackNotifications /v 1 /f
+reg add HKCU\SOFTWARE\Policies\Microsoft\Windows\CloudContent\DisableTailoredExperiencesWithDiagnosticData /v 1 /f
+reg add HKLM:\SOFTWARE\Policies\Microsoft\Windows\AdvertisingInfo\DisabledByGroupPolicy /v 1 /f
+reg add HKLM:\SOFTWARE\Microsoft\Windows\Windows Error Reporting\Disabled /v 1 /f
+reg add HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config\DODownloadMode /v 1 /f
+reg add HKLM:\SYSTEM\CurrentControlSet\Control\Remote Assistance\fAllowToGetHelp /v 0 /f
+reg add HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\OperationStatusManager\EnthusiastMode /v 1 /f
+reg add HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\ShowTaskViewButton /v 0 /f
+reg add HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\People\PeopleBand /v 0 /f
+reg add HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\LaunchTo /v 1 /f
+reg add HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem\LongPathsEnabled /v 1 /f
+reg add HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\DriverSearching\SearchOrderConfig /v 1 /f
+reg add HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile\SystemResponsiveness /v 0 /f
+reg add HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile\NetworkThrottlingIndex /v 4294967295 /f
+reg add HKCU\Control Panel\Desktop\MenuShowDelay /v 1 /f
+reg add HKCU\Control Panel\Desktop\AutoEndTasks /v 1 /f
+reg add HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management\ClearPageFileAtShutdown /v 0 /f
+reg add HKLM:\SYSTEM\ControlSet001\Services\Ndu\Start /v 2 /f
+reg add HKCU\Control Panel\Mouse\MouseHoverTime /v 400 /f
+reg add HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters\IRPStackSize /v 30 /f
+reg add HKCU\SOFTWARE\Policies\Microsoft\Windows\Windows Feeds\EnableFeeds /v 0 /f
+reg add HKCU\Software\Microsoft\Windows\CurrentVersion\Feeds\ShellFeedsTaskbarViewMode /v 2 /f
+reg add HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\HideSCAMeetNow /v 1 /f
+reg add HKCU\Software\Microsoft\Windows\CurrentVersion\UserProfileEngagement\ScoobeSystemSettingEnabled /v 0 /f
+reg add HKLM:\SOFTWARE\Policies\Microsoft\Windows\System\EnableActivityFeed /v 0 /f
+reg add HKLM:\SOFTWARE\Policies\Microsoft\Windows\System\PublishUserActivities /v 0 /f
+reg add HKLM:\SOFTWARE\Policies\Microsoft\Windows\System\UploadUserActivities /v 0 /f
+reg add HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\location\Value /v Deny /f
+reg add HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Sensor\Overrides\{BFA794E4-F964-4FDB-90F6-51056BFE4B44}\SensorPermissionState /v 0 /f
+reg add HKLM:\SYSTEM\CurrentControlSet\Services\lfsvc\Service\Configuration\Status /v 0 /f
+reg add HKLM:\SYSTEM\Maps\AutoUpdateEnabled /v 0 /f
+reg add HKCU\Software\Microsoft\Windows\CurrentVersion\Search\SearchboxTaskbarMode /v 1 /f
+reg add HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\TaskbarAl /v 1 /f
+reg add HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\TaskbarAl /v 0 /f
+reg add HKLM\SYSTEM\CurrentControlSet\Control\CrashControl\DisplayParameters /v 1 /f
+reg add HKLM\SYSTEM\CurrentControlSet\Control\CrashControl\DisableEmoticon /v 1 /f
+Set-Service -Name AJRouter -StartupType Disabled
 Set-Service -Name ALG -StartupType Manual
 Set-Service -Name AppIDSvc -StartupType Manual
 Set-Service -Name AppMgmt -StartupType Manual
 Set-Service -Name AppReadiness -StartupType Manual
 Set-Service -Name AppVClient -StartupType Disabled
 Set-Service -Name AppXSvc -StartupType Manual
-Set-Service -Name Appinfo -StartupType Manual
+Set-Service -Name Appino -StartupType Manual
+Set-Service -Name AssignedAccessManagerSvc -StartupType Disabled
 Set-Service -Name AudioEndpointBuilder -StartupType Automatic
 Set-Service -Name AudioSrv -StartupType Automatic
-Set-Service -Name Audiosrv -StartupType Automatic
 Set-Service -Name AxInstSV -StartupType Manual
 Set-Service -Name BDESVC -StartupType Manual
 Set-Service -Name BFE -StartupType Automatic
+Set-Service -Name BITS -StartupType AutomaticDelayedStart
 Set-Service -Name BTAGService -StartupType Manual
 Set-Service -Name BcastDVRUserService_* -StartupType Manual
 Set-Service -Name BluetoothUserService_* -StartupType Manual
-Set-Service -Name BrokerInfrastructure -StartupType Automatic
+Set-Service -Name BrokerInfrastructure -StartupType Manual
 Set-Service -Name Browser -StartupType Manual
 Set-Service -Name BthAvctpSvc -StartupType Automatic
 Set-Service -Name BthHFSrv -StartupType Automatic
+Set-Service -Name CDPSvc -StartupType Manual
 Set-Service -Name CDPUserSvc_* -StartupType Automatic
 Set-Service -Name COMSysApp -StartupType Manual
 Set-Service -Name CaptureService_* -StartupType Manual
@@ -88,16 +111,18 @@ Set-Service -Name DcomLaunch -StartupType Automatic
 Set-Service -Name DcpSvc -StartupType Manual
 Set-Service -Name DevQueryBroker -StartupType Manual
 Set-Service -Name DeviceAssociationBrokerSvc_* -StartupType Manual
+Set-Service -Name DeviceAssociationService -StartupType Manual
 Set-Service -Name DeviceInstall -StartupType Manual
 Set-Service -Name DevicePickerUserSvc_* -StartupType Manual
 Set-Service -Name DevicesFlowUserSvc_* -StartupType Manual
 Set-Service -Name Dhcp -StartupType Automatic
-Set-Service -Name DiagTrack -StartupType Disabled
+Set-Service -Name DiagTrack -StartupType Manual
 Set-Service -Name DialogBlockingService -StartupType Disabled
 Set-Service -Name DispBrokerDesktopSvc -StartupType Automatic
 Set-Service -Name DisplayEnhancementService -StartupType Manual
-Set-Service -Name DmEnrollmentSvc -StartupType Manual
+Set-Service -Name DmEnrollmentSvc -StartupType Manual 
 Set-Service -Name Dnscache -StartupType Automatic
+Set-Service -Name DoSvc -StartupType AutomaticDelayedStart
 Set-Service -Name DsSvc -StartupType Manual
 Set-Service -Name DsmSvc -StartupType Manual
 Set-Service -Name DusmSvc -StartupType Automatic
@@ -105,7 +130,6 @@ Set-Service -Name EFS -StartupType Manual
 Set-Service -Name EapHost -StartupType Manual
 Set-Service -Name EntAppSvc -StartupType Manual
 Set-Service -Name EventLog -StartupType Automatic
-Set-Service -Name EventSystem -StartupType Automatic
 Set-Service -Name FDResPub -StartupType Manual
 Set-Service -Name Fax -StartupType Manual
 Set-Service -Name FontCache -StartupType Automatic
@@ -116,10 +140,11 @@ Set-Service -Name HomeGroupListener -StartupType Manual
 Set-Service -Name HomeGroupProvider -StartupType Manual
 Set-Service -Name HvHost -StartupType Manual
 Set-Service -Name IEEtwCollectorService -StartupType Manual
+Set-Service -Name IKEEXT -StartupType Manual
 Set-Service -Name InstallService -StartupType Manual
 Set-Service -Name InventorySvc -StartupType Manual
 Set-Service -Name IpxlatCfgSvc -StartupType Manual
-Set-Service -Name KeyIso -StartupType Automatic
+Set-Service -Name Keylso -StartupType Automatic
 Set-Service -Name KtmRm -StartupType Manual
 Set-Service -Name LSM -StartupType Automatic
 Set-Service -Name LanmanServer -StartupType Automatic
@@ -128,11 +153,13 @@ Set-Service -Name LicenseManager -StartupType Manual
 Set-Service -Name LxpSvc -StartupType Manual
 Set-Service -Name MSDTC -StartupType Manual
 Set-Service -Name MSiSCSI -StartupType Manual
+Set-Service -Name MapsBroker -StartupType AutomaticDelayedStart
 Set-Service -Name McpManagementService -StartupType Manual
 Set-Service -Name MessagingService_* -StartupType Manual
 Set-Service -Name MicrosoftEdgeElevationService -StartupType Manual
 Set-Service -Name MixedRealityOpenXRSvc -StartupType Manual
 Set-Service -Name MpsSvc -StartupType Automatic
+Set-Service -Name MsKeyboardFilter -StartupType Manual
 Set-Service -Name NPSMSvc_* -StartupType Manual
 Set-Service -Name NaturalAuthentication -StartupType Manual
 Set-Service -Name NcaSvc -StartupType Manual
@@ -145,10 +172,11 @@ Set-Service -Name Netman -StartupType Manual
 Set-Service -Name NgcCtnrSvc -StartupType Manual
 Set-Service -Name NgcSvc -StartupType Manual
 Set-Service -Name NlaSvc -StartupType Manual
-Set-Service -Name OneSyncSvc_* -StartupType Automatic
+Set-Service -Name OneSyncSrv_* -StartupType Automatic
 Set-Service -Name P9RdrService_* -StartupType Manual
 Set-Service -Name PNRPAutoReg -StartupType Manual
 Set-Service -Name PNRPsvc -StartupType Manual
+Set-Service -Name PcaSvc -StartupType Manual
 Set-Service -Name PeerDistSvc -StartupType Manual
 Set-Service -Name PenService_* -StartupType Manual
 Set-Service -Name PerfHost -StartupType Manual
@@ -162,8 +190,9 @@ Set-Service -Name PrintWorkflowUserSvc_* -StartupType Manual
 Set-Service -Name ProfSvc -StartupType Automatic
 Set-Service -Name PushToInstall -StartupType Manual
 Set-Service -Name QWAVE -StartupType Manual
-Set-Service -Name RasAu-StartupType -StartupType Manual
-Set-Service -Name RemoteAccess -StartupType Disabled
+Set-Service -Name RasAuto -StartupType Manual
+Set-Service -Name RasMan -StartupType Manual
+Set-Service -Name RemoteAccess -StartupType Automatic
 Set-Service -Name RemoteRegistry -StartupType Disabled
 Set-Service -Name RetailDemo -StartupType Manual
 Set-Service -Name RmSvc -StartupType Manual
@@ -194,7 +223,9 @@ Set-Service -Name ShellHWDetection -StartupType Automatic
 Set-Service -Name SmsRouter -StartupType Manual
 Set-Service -Name Spooler -StartupType Automatic
 Set-Service -Name SstpSvc -StartupType Manual
+Set-Service -Name StateRepository -StartupType Manual
 Set-Service -Name StiSvc -StartupType Manual
+Set-Service -Name StorSvc -StartupType Manual
 Set-Service -Name SysMain -StartupType Automatic
 Set-Service -Name SystemEventsBroker -StartupType Automatic
 Set-Service -Name TabletInputService -StartupType Manual
@@ -216,6 +247,7 @@ Set-Service -Name UmRdpService -StartupType Manual
 Set-Service -Name UnistoreSvc_* -StartupType Manual
 Set-Service -Name UserDataSvc_* -StartupType Manual
 Set-Service -Name UserManager -StartupType Automatic
+Set-Service -Name UsoSvc -StartupType Manual
 Set-Service -Name VGAuthService -StartupType Automatic
 Set-Service -Name VMTools -StartupType Automatic
 Set-Service -Name VSS -StartupType Manual
@@ -242,28 +274,31 @@ Set-Service -Name WebClient -StartupType Manual
 Set-Service -Name Wecsvc -StartupType Manual
 Set-Service -Name WerSvc -StartupType Manual
 Set-Service -Name WiaRpc -StartupType Manual
+Set-Service -Name WinDefend -StartupType Automatic
 Set-Service -Name WinHttpAutoProxySvc -StartupType Manual
 Set-Service -Name WinRM -StartupType Manual
 Set-Service -Name Winmgmt -StartupType Automatic
 Set-Service -Name WlanSvc -StartupType Automatic
 Set-Service -Name WpcMonSvc -StartupType Manual
+Set-Service -Name WpnService -StartupType Manual
 Set-Service -Name WpnUserService_* -StartupType Automatic
-Set-Service -Name WwanSvc -StartupType Manual
 Set-Service -Name XblAuthManager -StartupType Manual
 Set-Service -Name XblGameSave -StartupType Manual
-Set-Service -Name XboxGipSvc -StartupType Manual
+Set-Service -Name XbocGipSvc -StartupType Manual
 Set-Service -Name XboxNetApiSvc -StartupType Manual
 Set-Service -Name autotimesvc -StartupType Manual
 Set-Service -Name bthserv -StartupType Manual
 Set-Service -Name camsvc -StartupType Manual
+Set-Service -Name cbdhsvc_* -StartupType Manual
 Set-Service -Name cloudidsvc -StartupType Manual
 Set-Service -Name dcsvc -StartupType Manual
 Set-Service -Name defragsvc -StartupType Manual
-Set-Service -Name diagnosticshub.standardcollector.service -StartupType Manual
+Set-Service -Name diagnostichub.standardcollector.service -StartupType Manual
 Set-Service -Name diagsvc -StartupType Manual
+Set-Service -Name dmwappushservice -StartupType Manual
 Set-Service -Name dot3svc -StartupType Manual
 Set-Service -Name edgeupdate -StartupType Manual
-Set-Service -Name edgeupdatem -StartupType Manual
+Set-Service -Name edgeupatem -StartupType Manual
 Set-Service -Name embeddedmode -StartupType Manual
 Set-Service -Name fdPHost -StartupType Manual
 Set-Service -Name fhsvc -StartupType Manual
@@ -271,13 +306,13 @@ Set-Service -Name gpsvc -StartupType Automatic
 Set-Service -Name hidserv -StartupType Manual
 Set-Service -Name icssvc -StartupType Manual
 Set-Service -Name iphlpsvc -StartupType Automatic
-Set-Service -Name lfsvc -StartupType Manual
+Set-Service -Name ifsvc -StartupType Manual
 Set-Service -Name lltdsvc -StartupType Manual
 Set-Service -Name lmhosts -StartupType Manual
-Set-Service -Name mpssvc -StartupType Automatic
+Set-Service -Name mpssvc -StartupType Manual
 Set-Service -Name msiserver -StartupType Manual
 Set-Service -Name netprofm -StartupType Manual
-Set-Service -Name nsi -StartupType Automatic
+Set-Service -Name nsi -StartupType Manual
 Set-Service -Name p2pimsvc -StartupType Manual
 Set-Service -Name p2psvc -StartupType Manual
 Set-Service -Name perceptionsimulation -StartupType Manual
@@ -290,7 +325,7 @@ Set-Service -Name sppsvc -StartupType AutomaticDelayedStart
 Set-Service -Name ssh-agent -StartupType Disabled
 Set-Service -Name svsvc -StartupType Manual
 Set-Service -Name swprv -StartupType Manual
-Set-Service -Name tiledatamodelsvc -StartupType Automatic
+Set-Service -Name tiledatamodelsvc -StartupType Automatic 
 Set-Service -Name tzautoupdate -StartupType Disabled
 Set-Service -Name uhssvc -StartupType Disabled
 Set-Service -Name upnphost -StartupType Manual
@@ -335,4 +370,3 @@ GPUpdate /Force
 Get-HPDrivers -NoPrompt -BIOS -DeleteInstallationFiles
 Reset-WUComponents -Verbose
 Get-WindowsUpdate -AcceptAll -Install -AutoReboot
-
