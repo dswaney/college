@@ -1,33 +1,4 @@
 # ─────────────────────────────────────────────────────────────────────────────
-# Ensure script runs as Administrator
-# ─────────────────────────────────────────────────────────────────────────────
-# Logging setup
-$scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
-$logFile = Join-Path $scriptDir "ScriptLog.txt"
-Start-Transcript -Path $logFile -Append
-
-<# # Ensure script runs as Administrator
-if (-not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) {
-    Write-Error "Please run this script as Administrator."
-    Stop-Transcript
-    exit 1 
-}
-#>
-
-# ─────────────────────────────────────────────────────────────────────────────
-# Set Execution Policy AFTER verifying admin rights
-# ─────────────────────────────────────────────────────────────────────────────
-Set-ExecutionPolicy RemoteSigned -Scope LocalMachine -Force
-
-$ErrorActionPreference = "Stop"
-trap { Write-Error "Unhandled Error: $_"; exit 1 }
-
-# ─────────────────────────────────────────────────────────────────────────────
-# Enable UAC
-# ─────────────────────────────────────────────────────────────────────────────
-reg.exe ADD HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v EnableLUA /t REG_DWORD /d 1 /f
-
-# ─────────────────────────────────────────────────────────────────────────────
 # Prep: TLS + connection limits
 # ─────────────────────────────────────────────────────────────────────────────
 [Net.ServicePointManager]::SecurityProtocol = `
@@ -57,4 +28,3 @@ $officePath = "C:\Program Files\Common Files\Microsoft Shared\ClickToRun\OfficeC
 if (Test-Path $officePath) {
     Start-Process $officePath -ArgumentList "/update USER", "displaylevel=True"
 }
-Stop-Transcript
