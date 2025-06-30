@@ -1,4 +1,4 @@
-﻿# Define a reusable function
+# Define a reusable function
 function Register-WeeklyTask {
     param (
         [string]$TaskName,
@@ -8,13 +8,18 @@ function Register-WeeklyTask {
 
     $trigger = New-ScheduledTaskTrigger -Weekly -DaysOfWeek Sunday -At $Time
     $action = New-ScheduledTaskAction -Execute "powershell.exe" -Argument "-NoProfile -ExecutionPolicy Bypass -File `"$ScriptPath`""
-    $principal = New-ScheduledTaskPrincipal -UserId "SYSTEM" -LogonType ServiceAccount -RunLevel Highest
+    $principal = New-ScheduledTaskPrincipal -UserId "MISAdmin" -LogonType Password -RunLevel Highest
 
-    Register-ScheduledTask -TaskName $TaskName -Trigger $trigger -Action $action -Principal $principal -Description "Weekly task to run $ScriptPath" -Force
+    # Create a secure password
+    $securePassword = ConvertTo-SecureString " " -AsPlainText -Force
+    $credential = New-Object System.Management.Automation.PSCredential("MISAdmin", $securePassword)
+
+    Register-ScheduledTask -TaskName $TaskName -Trigger $trigger -Action $action -Principal $principal -Description "Weekly task to run $ScriptPath" -User "MISAdmin" -Password "M1$admin" -Force
+
     Write-Host "✅ Scheduled task '$TaskName' has been created for $Time." -ForegroundColor Green
 }
 
-# Define script paths
+# Define script paths and schedule
 Register-WeeklyTask -TaskName "Remove User Profiles Weekly"         -ScriptPath "C:\Windows\Scripts\Remove-UserProfiles.ps1"        -Time "01:30AM"
 Register-WeeklyTask -TaskName "Weekend Apps Updates"                -ScriptPath "C:\Windows\Scripts\Weekend_Apps_Updates.ps1"       -Time "02:00AM"
 Register-WeeklyTask -TaskName "Weekend HP Drivers Update"           -ScriptPath "C:\Windows\Scripts\Weekend_HP_Drivers_Update.ps1"  -Time "02:45AM"
