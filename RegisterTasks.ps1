@@ -14,7 +14,7 @@ function Register-WeeklyTask {
     $securePassword = ConvertTo-SecureString " " -AsPlainText -Force
     $credential = New-Object System.Management.Automation.PSCredential("MISAdmin", $securePassword)
 
-    Register-ScheduledTask -TaskName $TaskName -Trigger $trigger -Action $action -Principal $principal -Description "Weekly task to run $ScriptPath" -User "MISAdmin" -Password "M1$admin" -Force
+    Register-ScheduledTask -TaskName $TaskName -Trigger $trigger -Action $action -Principal $principal -Description "Weekly task to run $ScriptPath" -User "MISAdmin" -Password "" -Force
 
     Write-Host "✅ Scheduled task '$TaskName' has been created for $Time." -ForegroundColor Green
 }
